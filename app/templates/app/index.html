@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1>Главная страница - heading</h1>
+    {% for product in products %}
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}</p>
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+    {% endfor %}
+    {% for brand in brands %}
+        <h2>{{ brand.name }}</h2>
+        <p>{{ brand.county }}</p>
+    {% endfor %}
+    {% for category in categories %}
+        <h2>{{ category.name }}</h2>
+        <p>{{ category.parent_category.name }}</p>
+    {% endfor %}
+{% endblock %}
